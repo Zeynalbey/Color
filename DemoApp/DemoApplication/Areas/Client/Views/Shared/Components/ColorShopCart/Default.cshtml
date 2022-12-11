@@ -1,0 +1,49 @@
+﻿@using DemoApplication.Areas.Client.ViewModels.Basket;
+@model List<ColorCookieViewModel>
+
+<div class="cart-total">
+
+    <span class="text-item">
+        Shopping Cart
+    </span>
+
+</div>
+<div class="cart-dropdown-block">
+    <div class=" single-cart-block " id="basket-cart-mini">
+        @foreach (var colorCookieViewModel in Model)
+        {
+
+            <div class="cart-product">
+                <a href="product-details.html" class="image">
+                    <img src="~/client/assets/image/products/cart-product-1.jpg" alt="">
+                </a>
+                <div class="content">
+                    <h3 class="title">
+                        <a href="product-details.html">
+                            @colorCookieViewModel.Name
+                        </a>
+                    </h3>
+@*                    <p class="price"><span class="qty">@productCookieViewModel.Quantity ×</span> £@productCookieViewModel.Price</p>
+                    <a data-id="@productCookieViewModel.Id" class="cross-btn remove-product-to-basket-btn"><i class="fas fa-times"></i></a>*@
+                </div>
+            </div>
+        }
+        @if (Model.Count!=0)
+        {
+                    <body style="background-color:@Model[0].Name;">
+        </body>
+        }
+
+
+    </div>
+    <div class=" single-cart-block ">
+        <div class="btn-block">
+            <a href="cart.html" class="btn">
+                View Cart <i class="fas fa-chevron-right"></i>
+            </a>
+            <a href="checkout.html" class="btn btn--primary">
+                Check Out <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>

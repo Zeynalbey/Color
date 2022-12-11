@@ -1,0 +1,118 @@
+﻿@model IndexViewModel
+
+<!--=================================
+Home Features Section
+===================================== -->
+
+<section class="mb--30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mt--30">
+                <div class="feature-box h-100">
+                    <div class="icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="text">
+                        <h5>Free Shipping Item</h5>
+                        <p> Orders over $500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mt--30">
+                <div class="feature-box h-100">
+                    <div class="icon">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <div class="text">
+                        <h5>Money Back Guarantee</h5>
+                        <p>100% money back</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mt--30">
+                <div class="feature-box h-100">
+                    <div class="icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="text">
+                        <h5>Cash On Delivery</h5>
+                        <p>Lorem ipsum dolor amet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mt--30">
+                <div class="feature-box h-100">
+                    <div class="icon">
+                        <i class="fas fa-life-ring"></i>
+                    </div>
+                    <div class="text">
+                        <h5>Help & Support</h5>
+                        <p>Call us : + 0123.4567.89</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--=================================
+ARTS & PHOTOGRAPHY BOOKS
+===================================== -->
+<section class="section-margin">
+    <div class="container">
+
+        <div class="section-title section-title--bordered">
+            <h2>ARTS & PHOTOGRAPHY BOOKS</h2>
+        </div>
+        <div class="product-slider sb-slick-slider slider-border-single-row" data-slick-setting='{
+                "autoplay": true,
+                "autoplaySpeed": 8000,
+                "slidesToShow": 5,
+                "dots":true
+            }' data-slick-responsive='[
+                {"breakpoint":1500, "settings": {"slidesToShow": 4} },
+                {"breakpoint":992, "settings": {"slidesToShow": 3} },
+                {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                {"breakpoint":480, "settings": {"slidesToShow": 1} },
+                {"breakpoint":320, "settings": {"slidesToShow": 1} }
+            ]'>
+
+            @foreach (var color in Model.Colors)
+            {
+                <div class="single-slide">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <h3>
+                                <a href="product-details.html">
+                                    @color.Name
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="product-card--body">
+                            <div style="background-color:@color.Name" class="card-image">
+
+                                <img src="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Winter-PNG/Transparent_Snowfall_PNG_Effect.png?m=1507172102" alt="">
+                                <div class="hover-contents">
+                                    <a href="product-details.html" class="hover-image">
+                                    </a>
+                                    <div class="hover-btns">
+                                        <a asp-route="client-basket-color-add"
+                                       asp-route-id="@color.Id"
+                                       data-id="@color.Id"
+                                       class="add-product-to-basket-btn single-btn">
+                                            Add
+                                        </a>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+<partial name="Partials/_FooterPartial" />
+
