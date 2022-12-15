@@ -77,21 +77,21 @@ ARTS & PHOTOGRAPHY BOOKS
                 {"breakpoint":320, "settings": {"slidesToShow": 1} }
             ]'>
 
-            @foreach (var color in Model.Colors)
+            @foreach (var color in Model.Books)
             {
                 <div class="single-slide">
                     <div class="product-card">
                         <div class="product-header">
                             <h3>
                                 <a href="product-details.html">
-                                    @color.Name
+                                    @color.Title
                                 </a>
                             </h3>
                         </div>
                         <div class="product-card--body">
-                            <div style="background-color:@color.Name" class="card-image">
+                            <div style="background-color:@color.Title" class="card-image">
 
-                                <img src="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Winter-PNG/Transparent_Snowfall_PNG_Effect.png?m=1507172102" alt="">
+                                <img src="~/client/assets/image/products/product-1.jpg" alt="">
                                 <div class="hover-contents">
                                     <a href="product-details.html" class="hover-image">
                                     </a>

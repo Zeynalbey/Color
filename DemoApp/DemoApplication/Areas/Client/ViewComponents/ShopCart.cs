@@ -7,23 +7,23 @@ namespace DemoApplication.Areas.Client.ViewComponents
 {
     public class ShopCart : ViewComponent
     {
-        public IViewComponentResult Invoke(List<ProductCookieViewModel>? viewModels = null)
+        public IViewComponentResult Invoke(List<BasketViewModel>? viewModels = null)
         {
-            var productsCookieValue = HttpContext.Request.Cookies["products"];
+            var productcookie = HttpContext.Request.Cookies["products"];
+            var products = new List<BasketViewModel>();
 
-            var productsCookieViewModel = new List<ProductCookieViewModel>();
-
-            if (productsCookieValue is not null)
+            if (productcookie is not null)
             {
-                productsCookieViewModel = JsonSerializer.Deserialize<List<ProductCookieViewModel>>(productsCookieValue);
-            }
+                products = JsonSerializer.Deserialize<List<BasketViewModel>>(productcookie);
 
+            }
             if (viewModels is not null)
             {
-                productsCookieViewModel = viewModels;
+                products = viewModels;
             }
-
-            return View(productsCookieViewModel);
+            return View(products);
         }
+       
+
     }
 }

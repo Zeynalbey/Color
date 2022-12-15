@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Client\Views\Shared\Components\ShopCart\Default.cshtml" />
     <None Include="wwwroot\admin\assets\css\app-dark-rtl.min.css.map" />
     <None Include="wwwroot\admin\assets\css\app-dark.min.css.map" />
     <None Include="wwwroot\admin\assets\css\app-material.min.css.map" />

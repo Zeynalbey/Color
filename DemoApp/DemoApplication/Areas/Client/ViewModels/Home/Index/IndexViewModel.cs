@@ -2,6 +2,6 @@
 {
     public class IndexViewModel
     {
-        public List<BookListItemViewModel> Colors { get; set; }
+        public List<BookListItemViewModel> Books { get; set; }
     }
 }

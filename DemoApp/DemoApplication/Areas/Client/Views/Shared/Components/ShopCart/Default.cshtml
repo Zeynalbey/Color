@@ -1,15 +1,15 @@
 ﻿@using DemoApplication.Areas.Client.ViewModels.Basket;
-@model List<ProductCookieViewModel>
+@model List<BasketViewModel>;
 
 <div class="cart-total">
     <span class="text-number">
-        @Model!.Count
+        @Model.Count
     </span>
     <span class="text-item">
         Shopping Cart
     </span>
     <span class="price">
-        £@Model!.Sum(pcvm => pcvm.Total)
+        £@Model.Sum(pcvm => pcvm.Total)
         <i class="fas fa-chevron-down"></i>
     </span>
 </div>
@@ -28,7 +28,10 @@
                         </a>
                     </h3>
                     <p class="price"><span class="qty">@productCookieViewModel.Quantity ×</span> £@productCookieViewModel.Price</p>
-                    <a data-id="@productCookieViewModel.Id" class="cross-btn remove-product-to-basket-btn"><i class="fas fa-times"></i></a>
+
+                    <a asp-route="client-basket-delete" asp-route-id="@productCookieViewModel.Id" 
+                    data-id="@productCookieViewModel.Id" class="cross-btn remove-product-to-basket-btn">x</a>
+
                 </div>
             </div>
         }
@@ -44,3 +47,5 @@
         </div>
     </div>
 </div>
+
+

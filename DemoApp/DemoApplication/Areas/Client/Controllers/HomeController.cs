@@ -22,19 +22,13 @@ namespace DemoApplication.Areas.Client.Controllers
         [HttpGet("index")]
         public async Task<IActionResult> IndexAsync()
         {
-            //var model = new IndexViewModel
-            //{
-            //    Books = await _dbContext.Books
-            //    .Select(b => new BookListItemViewModel(b.Id, b.Title, $"{b.Author.FirstName} {b.Author.LastName}", b.Price))
-            //    .ToListAsync(),
-            //};
-
             var model = new IndexViewModel
             {
-                Colors = await _dbContext.Colors
-                .Select(b => new BookListItemViewModel(b.Id, b.Name))
+                Books = await _dbContext.Books
+                .Select(b => new BookListItemViewModel(b.Id, b.Title, $"{b.Author.FirstName} {b.Author.LastName}", b.Price))
                 .ToListAsync(),
             };
+
 
             return View(model);
         }
